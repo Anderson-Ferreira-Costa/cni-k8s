@@ -1,0 +1,27 @@
+apiVersion: crd.k8s.amazonaws.com/v1alpha1
+kind: ENIConfig
+metadata: 
+  name: ca-central-1a
+spec: 
+  subnet: subnet-0e6995dc7929fc97f
+  securityGroups: 
+    - sg-0ee55198f1e12057a
+---
+apiVersion: crd.k8s.amazonaws.com/v1alpha1
+kind: ENIConfig
+metadata: 
+  name: ca-central-1b
+spec: 
+  subnet: subnet-0ac0fbf983893fb3d
+  securityGroups: 
+    - sg-0ee55198f1e12057a
+---
+apiVersion: crd.k8s.amazonaws.com/v1alpha1
+kind: ENIConfig
+metadata: 
+  name: ca-central-1d
+spec: 
+  subnet: subnet-08b466ff5a5c6a8c4
+  securityGroups: 
+    - sg-0ee55198f1e12057a
+  

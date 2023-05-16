@@ -1,0 +1,29 @@
+
+Cluster: prd-psg-corp-apisensedia
+
+CNI
+
+kubectl describe daemonset aws-node -n kube-system | grep amazon-k8s-cni: | cut -d "/" -f 2
+
+curl -O https://raw.githubusercontent.com/aws/amazon-vpc-cni-k8s/v1.11.4/config/master/aws-k8s-cni.yaml
+kubectl apply -f aws-k8s-cni.yaml 
+
+kubectl set env daemonset aws-node -n kube-system AWS_VPC_K8S_CNI_CUSTOM_NETWORK_CFG=true
+kubectl describe daemonset aws-node -n kube-system | grep AWS_VPC_K8S_CNI_CUSTOM_NETWORK_CFG
+
+kubectl apply -f cni.yaml
+kubectl get ENIConfigs
+
+kubectl set env daemonset aws-node -n kube-system ENI_CONFIG_LABEL_DEF=topology.kubernetes.io/zone
+kubectl describe daemonset aws-node -n kube-system | grep ENI_CONFIG_LABEL_DEF
+
+kubectl get pods -A -o wide
+
+  
+kubectl get nodes
+
+kubectl cordon <Node_Name>
+
+kubectl drain <Node_Name> --delete-local-data --ignore-daemonsets
+
+kubectl describe node <Node_Name>
