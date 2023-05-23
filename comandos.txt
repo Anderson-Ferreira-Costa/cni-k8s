@@ -27,5 +27,3 @@ kubectl cordon <Node_Name>
 kubectl drain <Node_Name> --delete-local-data --ignore-daemonsets
 
 kubectl describe node <Node_Name>
-
-teste
